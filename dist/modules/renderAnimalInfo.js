@@ -9,13 +9,15 @@ export default function renderAnimalInfo(animal) {
     }
     function renderImage() {
         const img = document.createElement("img");
-        img.src = `data/images/${animal.imageUrl}`;
+        img.src = `./images/${animal.imageUrl}`;
         img.alt = `${animal.name} the ${animal.kindOfAnimal}`;
+        img.classList.add("animal-image");
         return img;
     }
     function renderNameAndType() {
         const p = document.createElement("p");
         p.textContent = `${animal.name} the ${animal.kindOfAnimal}`;
+        p.classList.add("name-and-type");
         return p;
     }
     function renderJobInfo() {
@@ -25,6 +27,7 @@ export default function renderAnimalInfo(animal) {
             ? "Currently employed"
             : "Not currently employed";
         p.textContent = `${animal.job} - ${status}`;
+        p.classList.add("job-info");
         return p;
     }
     function renderAge() {
@@ -32,14 +35,18 @@ export default function renderAnimalInfo(animal) {
         const currentYear = new Date().getFullYear();
         const age = new Date().getFullYear() - Number(animal.birthYear);
         p.textContent = `Age: ${age} years old.`;
+        p.classList.add("age-info");
         return p;
     }
     function renderSkills() {
         const container = document.createElement("div");
+        container.classList.add("skills-container");
         const title = document.createElement("p");
+        title.classList.add("skills-title");
         title.textContent = "Skills:";
         container.appendChild(title);
         const ul = document.createElement("ul");
+        ul.classList.add("skills-list");
         let skills = animal.skills;
         if (!skills) {
             skills = [];

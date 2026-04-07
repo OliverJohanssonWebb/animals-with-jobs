@@ -12,6 +12,7 @@ export default function renderListOfAnimals(animals) {
     }
     animals.forEach((animal) => {
         const li = document.createElement("li");
+        li.classList.add("animal-list");
         li.textContent = animal.name;
         li.addEventListener("click", () => {
             renderAnimalInfo(animal);
