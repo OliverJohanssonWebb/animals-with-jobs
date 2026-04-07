@@ -1,0 +1,1 @@
+{"root":["./src/script.ts","./src/modules/ianimal.ts","./src/modules/fetchanimals.ts","./src/modules/renderanimalinfo.ts","./src/modules/renderlistofanimals.ts"],"version":"6.0.2"}
