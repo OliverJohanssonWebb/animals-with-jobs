@@ -41,10 +41,17 @@ export default function renderAnimalInfo(animal: any): void {
   function renderAge() {
     const p = document.createElement("p");
 
-    const currentYear = new Date().getFullYear();
     const age = new Date().getFullYear() - Number(animal.birthYear);
 
-    p.textContent = `Age: ${age} years old.`;
+    const label = document.createElement("span");
+    label.textContent = "Age:";
+    label.classList.add("age-label");
+
+    const text = document.createTextNode(` ${age} years old.`);
+
+    p.appendChild(label);
+    p.appendChild(text);
+
     p.classList.add("age-info");
     return p;
   }
@@ -55,7 +62,6 @@ export default function renderAnimalInfo(animal: any): void {
 
     const title = document.createElement("p");
     title.classList.add("skills-title");
-    
     title.textContent = "Skills:";
     container.appendChild(title);
 
@@ -81,12 +87,22 @@ export default function renderAnimalInfo(animal: any): void {
     return container;
   }
 
-container.appendChild(renderImage());
-container.appendChild(renderNameAndType());
-container.appendChild(renderJobInfo());
-container.appendChild(renderAge());
-container.appendChild(renderSkills());
+  function renderDetails() {
+    const div = document.createElement("div");
+    div.classList.add("details-container");
+
+    div.appendChild(renderJobInfo());
+    div.appendChild(renderAge());
+    div.appendChild(renderSkills());
+
+    return div;
+  }
+
+  container.appendChild(renderImage());
+  container.appendChild(renderNameAndType());
+  container.appendChild(renderDetails());
 }
+
 
   //=====================================================//
   //Rendera ut bilden på djuret
